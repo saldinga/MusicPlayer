@@ -14,8 +14,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // Songs activity
-        TextView songLayout = findViewById(R.id.songs_layout);
-        songLayout.setOnClickListener(new View.OnClickListener() {
+        TextView songTextView = findViewById(R.id.songs_textview);
+        songTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(MainActivity.this, SongsActivity.class);
@@ -24,8 +24,8 @@ public class MainActivity extends AppCompatActivity {
         });
 
         //Artist activity
-        TextView artistLayout = findViewById(R.id.artist_layout);
-        artistLayout.setOnClickListener(new View.OnClickListener() {
+        TextView artistTextView = findViewById(R.id.artist_textview);
+        artistTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(MainActivity.this, ArtistsActivity.class);
@@ -34,8 +34,8 @@ public class MainActivity extends AppCompatActivity {
         });
 
         //Albums activity
-        TextView albumLayout = findViewById(R.id.albums_layout);
-        albumLayout.setOnClickListener(new View.OnClickListener() {
+        TextView albumTextView = findViewById(R.id.albums_textview);
+        albumTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(MainActivity.this, AlbumActivity.class);
@@ -44,8 +44,8 @@ public class MainActivity extends AppCompatActivity {
         });
 
         //Playlist activity
-        final TextView playlistLayout = findViewById(R.id.playlist_layout);
-        playlistLayout.setOnClickListener(new View.OnClickListener() {
+        final TextView playlistTextView = findViewById(R.id.playlist_textview);
+        playlistTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(MainActivity.this, PlaylistActivity.class);
@@ -53,8 +53,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
+        //Now playing activity
+        final TextView nowPlayingTextView = findViewById(R.id.nowplaying_textview);
+        nowPlayingTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(MainActivity.this, NowPlayingActivity.class);
+                startActivity(i);
+            }
+        });
     }
-
-
 }

@@ -2,6 +2,8 @@ package com.example.android.musicplayer;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -9,15 +11,16 @@ import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
-public class SongsActivity extends AppCompatActivity {
+public class SongsActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
 
-        TextView title = findViewById(R.id.activityTitle);
-        title.setText(R.string.songs);
+        Toolbar myToolbar = findViewById(R.id.my_toolbar);
+        setSupportActionBar(myToolbar);
+        myToolbar.setTitle(R.string.songs);
 
         ArrayList<Song> songs = new ArrayList<>();
         songs.add(new Song("Sting", "if i ever loose my faith in you", "4:29"));
@@ -31,9 +34,14 @@ public class SongsActivity extends AppCompatActivity {
         songs.add(new Song("Sting", "seven days", "4:39"));
         songs.add(new Song("Ed Sheeran", "perfect", "4:20"));
 
-
         SongAdapter songAdapter = new SongAdapter(this, songs);
         ListView listView = findViewById(R.id.list);
         listView.setAdapter(songAdapter);
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.navigation, menu);
+        menu.getItem(0).setVisible(false);
+        return true;
     }
 }

@@ -2,20 +2,23 @@ package com.example.android.musicplayer;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class AlbumActivity extends AppCompatActivity {
+public class AlbumActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
 
-        TextView title = findViewById(R.id.activityTitle);
-        title.setText(R.string.albums);
+        Toolbar myToolbar = findViewById(R.id.my_toolbar);
+        setSupportActionBar(myToolbar);
+        myToolbar.setTitle(R.string.albums);
 
         ArrayList<Song> albums = new ArrayList<>();
         albums.add(new Song("Sting", "Ten Summoner's Tales", "48:15"));
@@ -32,5 +35,11 @@ public class AlbumActivity extends AppCompatActivity {
         SongAdapter albumAdapter = new SongAdapter(this, albums);
         ListView listView = findViewById(R.id.list);
         listView.setAdapter(albumAdapter);
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.navigation, menu);
+        menu.getItem(2).setVisible(false);
+        return true;
     }
 }

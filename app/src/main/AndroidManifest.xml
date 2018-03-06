@@ -24,9 +24,14 @@
         <activity
             android:name=".SongsActivity"
             android:label="Songs" />
-        <activity android:name=".ArtistsActivity" />
-        <activity android:name=".AlbumActivity" />
-        <activity android:name=".PlaylistActivity"></activity>
+        <activity android:name=".ArtistsActivity"
+            android:label="Artists"/>
+        <activity android:name=".AlbumActivity"
+            android:label="Album"/>
+        <activity android:name=".PlaylistActivity"
+            android:label="Playlist"/>
+        <activity android:name=".NowPlayingActivity"
+            android:label="Now Playing"></activity>
     </application>
 
 </manifest>
