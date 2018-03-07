@@ -32,14 +32,14 @@ public class SongAdapter extends ArrayAdapter<Song> {
 
         Song currentSong = getItem(position);
 
-        TextView songName = listItemView.findViewById(R.id.song_name);
-        songName.setText(currentSong.getSongName());
+        TextView songNameTextView = listItemView.findViewById(R.id.song_name);
+        songNameTextView.setText(currentSong.getSongName());
 
-        TextView artistName = listItemView.findViewById(R.id.artist_name);
-        artistName.setText(currentSong.getArtistName());
+        TextView artistNameTextView = listItemView.findViewById(R.id.artist_name);
+        artistNameTextView.setText(currentSong.getArtistName());
 
-        TextView duration = listItemView.findViewById(R.id.duration);
-        duration.setText(currentSong.getDuration());
+        TextView durationTextView = listItemView.findViewById(R.id.duration);
+        durationTextView.setText(currentSong.getDuration());
 
         return listItemView;
     }
